@@ -81,8 +81,9 @@ function NotificationsContent() {
           lastSeen: new Date().toISOString(),
           blocked: [],
           reported: [],
-          emailVerified: notif.fromUser.emailVerified || false
-        } as User : undefined
+          emailVerified: notif.fromUser.emailVerified || false,
+          fameRating: notif.fromUser.fameRating || 0,
+        } as unknown as User : undefined
 
         return {
           id: notif.id?.toString() || '',
