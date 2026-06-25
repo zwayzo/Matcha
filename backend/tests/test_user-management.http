@@ -1,0 +1,58 @@
+
+### GET CURRENT USER
+GET http://127.0.0.1:5001/api/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE3NzE0MTc4ODh9.m4qp7vI4cpzl6HFIY8IUPBgFvZIWJfV9PwfCgKDoMZY
+Content-Type: application/json
+
+
+### GET USER BY ID
+GET http://127.0.0.1:5001/api/users/105
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMDYsImV4cCI6MTc3MTc3NjAyMX0.po98g6oV2EpT3KPRfmduxOkRNdUqNw4-B_aoaXmoqyw
+
+### DISCOVER
+GET http://127.0.0.1/5001/api/127.0.0.1:5001/api/discover
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0MCwiZXhwIjoxNzc0NzE4Njk1fQ.36f6qe-6ML2jNzJ5e4kEz1Dyv8nzBkbwy60EpF-ReEg
+
+
+### UPDATE USER PROFILE
+POST http://127.0.0.1:5001/api/users/profile
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE3NzE0MTYwMTh9.hxQaKbr6shZ51MU1Q1PgFYQSEPbSrW9rDGSZVQj4OQg
+Content-Type: application/json
+
+{
+  "location": "canada",
+  "age": "56"
+}
+
+### view profile
+
+GET http://127.0.0.1:5001/api/users/view/3
+Content-Type: application/json
+
+
+### get viwers
+
+GET http://127.0.0.1:5001/api/users/profile/visits
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE3NzQzNzMxMDZ9.s4ex_bfrxalArfoUYkHPMYxUJnpPpVdZNJTRJVpB5ug
+Content-Type: application/json
+
+
+### get like
+
+GET http://127.0.0.1:5001/api/users/liked-me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE3NzQzNzMxMDZ9.s4ex_bfrxalArfoUYkHPMYxUJnpPpVdZNJTRJVpB5ug
+Content-Type: application/json
+
+### fame rating
+GET http://127.0.0.1:5001/api/users/fame-rate/2
+Content-Type: application/json
+
+
+### Report
+POST  http://127.0.0.1:5001/api/users/report
+Content-Type: application/json
+
+{
+  "reported_id": 4,
+  "reason": "fake_account"
+}

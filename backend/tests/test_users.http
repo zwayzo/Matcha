@@ -1,0 +1,139 @@
+### REGISTER TEST USERS
+
+POST http://127.0.0.1:5001/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "simo@example.com",
+  "username": "simo",
+  "password": "TestPassword123!",
+  "first_name": "simo",
+  "last_name": "zizo",
+  "age": 23,
+  "sex": "male",
+  "sexualPreference": "everyone",
+  "title": "Engineer 1",
+  "company": "Company 1",
+  "bio": "This is test user 1.",
+  "interests": ["Traveling", "Gaming", "Music", "Reading", "Cooking", "Sports"],
+  "education": "Bachelor's",
+  "experienceLevel": "Entry-level",
+  "industry": "Technology",
+  "location": "City 1",
+  "image1": "",
+  "image2": "",
+  "image3": "",
+  "image4": ""
+}
+
+### 
+POST http://127.0.0.1:5001/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "testuser2@example.com",
+  "username": "testuser2",
+  "password": "TestPassword123!",
+  "first_name": "Test2",
+  "last_name": "User2",
+  "age": 27,
+  "sex": "male",
+  "sexualPreference": "everyone",
+  "title": "Engineer 2",
+  "company": "Company 2",
+  "bio": "This is test user 2.",
+  "interests": ["Traveling", "Gaming", "Music", "Reading", "Cooking", "Sports"],
+  "education": "Bachelor's",
+  "experienceLevel": "Entry-level",
+  "industry": "Technology",
+  "location": "City 2",
+  "image1": "",
+  "image2": "",
+  "image3": "",
+  "image4": ""
+}
+
+####
+
+POST http://127.0.0.1:5001/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "testuser3@example.com",
+  "username": "testuser3",
+  "password": "TestPassword123!",
+  "first_name": "Test3",
+  "last_name": "User3",
+  "age": 28,
+  "sex": "female",
+  "sexualPreference": "everyone",
+  "title": "Engineer 3",
+  "company": "Company 3",
+  "bio": "This is test user 3.",
+  "interests": ["Traveling", "Gaming", "Music", "Reading", "Cooking", "Sports"],
+  "education": "Bachelor's",
+  "experienceLevel": "Entry-level",
+  "industry": "Technology",
+  "location": "City 3",
+  "image1": "",
+  "image2": "",
+  "image3": "",
+  "image4": ""
+}
+
+### 
+
+POST http://127.0.0.1:5001/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "testuser4@example.com",
+  "username": "testuser4",
+  "password": "TestPassword123!",
+  "first_name": "Test4",
+  "last_name": "User4",
+  "age": 29,
+  "sex": "male",
+  "sexualPreference": "everyone",
+  "title": "Engineer 4",
+  "company": "Company 4",
+  "bio": "This is test user 4.",
+  "interests": ["Traveling", "Gaming", "Music", "Reading", "Cooking", "Sports"],
+  "education": "Bachelor's",
+  "experienceLevel": "Entry-level",
+  "industry": "Technology",
+  "location": "City 4",
+  "image1": "",
+  "image2": "",
+  "image3": "",
+  "image4": ""
+}
+
+####
+
+POST http://127.0.0.1:5001/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "testuser5@example.com",
+  "username": "testuser5",
+  "password": "TestPassword123!",
+  "first_name": "Test5",
+  "last_name": "User5",
+  "age": 30,
+  "sex": "female",
+  "sexualPreference": "everyone",
+  "title": "Engineer 5",
+  "company": "Company 5",
+  "bio": "This is test user 5.",
+  "interests": ["Traveling", "Gaming", "Music", "Reading", "Cooking", "Sports"],
+  "education": "Bachelor's",
+  "experienceLevel": "Entry-level",
+  "industry": "Technology",
+  "location": "City 5",
+  "image1": "",
+  "image2": "",
+  "image3": "",
+  "image4": ""
+}
+

@@ -1,0 +1,17 @@
+Flask
+pyjwt
+pytest
+pytest-flask
+Flask-Migrate
+psycopg
+psycopg-binary
+flask-socketio
+Flask-Mail
+websocket-client
+eventlet
+Flask-Login
+Flask-Cors
+Flask-SQLAlchemy
+python-dotenv
+psycopg2-binary
+requests

@@ -1,0 +1,33 @@
+services:
+  backend:
+    build: .
+    container_name: flask_backend
+    ports:
+      - "5001:5001"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    entrypoint: ["/app/entrypoint.sh"]
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: postgres:15
+    container_name: flask_postgres
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+
+# export FLASK_APP=main.py
+# export FLASK_ENV=development   # optional
+# flask db migrate -m "Add bio field to Profile"
+# flask db upgrade

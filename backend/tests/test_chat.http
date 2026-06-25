@@ -1,0 +1,48 @@
+### SENDING MSG
+
+POST http://127.0.0.1:5001/api/chat/messages
+Content-Type: application/json
+
+{
+  "conversation_id": 1,
+  "sender_id": 1,
+  "receiver_id": 2,
+  "content": "wacha smytk? "
+}
+
+
+### SENDING MSG
+
+POST http://127.0.0.1:5001/api/messages
+Content-Type: application/json
+
+{
+  "conversation_id": 11,
+  "sender_id": 5,
+  "receiver_id": 7,
+  "content": "hanya bikhir"
+}
+
+
+
+### GET MSGS
+GET http://127.0.0.1:5001/api/messages/1/
+Content-Type: application/json
+
+
+
+### GET USER CONVERSATIONS
+
+GET http://127.0.0.1:5001/api/conversations/1/
+Content-Type: application/json
+
+
+### BLOCK USER
+
+POST http://127.0.0.1:5001/api/block
+Content-Type: application/json
+
+{
+  "blocker_id": 3,
+  "blocked_id": 2
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Backend Connection</title>
+</head>
+<body>
+    <h1>Backend Connection Test</h1>
+    <button onclick="testConnection()">Test Connection</button>
+    <div id="result"></div>
+
+    <script>
+        async function testConnection() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const response = await fetch('http://localhost:5001/api/auth/sign-up', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@test.com',
+                        username: 'testuser',
+                        password: 'test123456',
+                        first_name: 'Test',
+                        last_name: 'User',
+                        age: 25,
+                        sex: 'male',
+                        sexualPreference: 'women',
+                        title: '',
+                        company: '',
+                        location: '',
+                        bio: '',
+                        interests: ['Traveling', 'Hiking / Nature', 'Camping', 'Photography', 'Reading / Books', 'Writing / Journaling'],
+                        education: '',
+                        experienceLevel: '',
+                        industry: '',
+                        image1: '',
+                        image2: '',
+                        image3: '',
+                        image4: ''
+                    }),
+                });
+                
+                const text = await response.text();
+                resultDiv.innerHTML = `
+                    <h3>Status: ${response.status}</h3>
+                    <h3>Status Text: ${response.statusText}</h3>
+                    <h3>Response:</h3>
+                    <pre>${text}</pre>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <h3 style="color: red;">Error:</h3>
+                    <pre>${error.message}</pre>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

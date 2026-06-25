@@ -1,0 +1,52 @@
+
+### MATCH
+POST http://127.0.0.1:5001/api/swipe
+Content-Type: application/json
+
+{
+  "from_id": 1,
+  "to_id": 4,
+  "action": "pass"
+  
+}
+
+### MATCH
+POST http://127.0.0.1:5001/api/swipe
+Content-Type: application/json
+
+{
+  "from_id": 3,
+  "to_id": 2,
+  "action": "like"
+  
+}
+
+
+### dislike
+POST http://127.0.0.1:5001/api/dislike
+Content-Type: application/json
+
+{
+  "from_id": 1,
+  "to_id": 2  
+}
+
+
+### GET POTENTIAL MATCHES
+
+GET http://127.0.0.1:5001/api/matches?user_id=6
+Content-Type: application/json
+
+
+
+### DISCOVER MATCHES
+
+GET http://127.0.0.1:5001/api/discover?user_id=7
+Content-Type: application/json
+
+
+
+
+# GET /api/discover - Get potential matches (with filters)
+# POST /api/swipe - Record swipe action
+# GET /api/matches - Get user matches

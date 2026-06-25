@@ -1,0 +1,82 @@
+#!/bin/bash
+
+### LOGIN
+POST http://127.0.0.1:5001/api/auth/login
+Content-Type: application/json
+
+{
+<<<<<<< HEAD
+  "email": "azzeddine.simohammed@gmail.com",
+  "password": "12345678"
+=======
+  "email": "clara.smith@example.com",
+  "password": "Password123!"
+>>>>>>> 6a8b0a16b0a7ef8cdca556c46ad53a568c147bac
+}
+### SIGN UP
+POST http://127.0.0.1:5001/api/auth/sign-up
+Content-Type: application/json
+
+{
+<<<<<<< HEAD
+  "email": "azzeddine@gmail.com",
+  "username": "kk",
+=======
+  "email": "medazzeddine48@gmail.com",
+  "username": "zizo",
+>>>>>>> 6a8b0a16b0a7ef8cdca556c46ad53a568c147bac
+  "password": "12345678",
+  "first_name": "dhhd",
+  "last_name": "jj",
+  "age":  "45",
+  "sex": "female",
+  "sexualPreference": "male",
+  "location": "tanger",
+  "emailVerified": "t",
+
+  "title": "Engineer",
+  "company": "ACME Corp",
+  "industry": "emine",
+  "experienceLevel": "Mid-level",
+  "localisation": "New York, USA",
+  "education": "Bachelor's Degree",
+  "bio": "I love coding!",
+  "interests": ["Traveling", "Camping", "Music", "Dancing", "Creative", "Movies"]
+}
+
+
+### GET-INTERSETS
+GET http://127.0.0.1:5001/api/interests?category=Entertainment%20%26%20Media
+
+
+Content-Type: application/json
+
+###GET-INTERESTS-GROUPPED-CATEGORY
+GET http://127.0.0.1:5001/api/interests/categories
+Content-Type: application/json
+
+
+### REQUEST PASSWORD RESET
+POST http://127.0.0.1:5001/api/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": ""
+}
+
+### CONFIRM PASSWORD RESET
+POST http://127.0.0.1:5001/api/auth/reset-password
+Content-Type: application/json
+
+{
+  "token": "NqbYR_rmkR6Slr6vWmdsf2Re4XN-sLXQxnsYSJUF47s",
+  "new_password": "23082002!"
+}
+
+
+
+### CONFIRM EMAIL
+GET http://127.0.0.1:5001/api/auth/confirm-email?token=0yVwglot_yj9wkmgF2dR-uh6Cq1-r1m0W3qhfVMBCZU
+Content-Type: application/json
+
+

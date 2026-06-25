@@ -1,0 +1,40 @@
+### Test Authentication Debug - Use this in your HTTP client
+
+### 0. VERIFY USER EMAIL (DEVELOPMENT ONLY)
+POST http://127.0.0.1:5001/api/auth/verify-user-dev/azzeddine.siammed@gmail.com
+Content-Type: application/json
+
+### 1. LOGIN FIRST TO GET TOKEN
+POST http://127.0.0.1:5001/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "azzeddine.siammed@gmail.com",
+  "password": "12345678"
+}
+
+### 2. USE TOKEN FROM LOGIN RESPONSE IN AUTHORIZATION HEADER
+GET http://127.0.0.1:5001/api/users/117
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+### 3. TEST WITH DIFFERENT USER ID (use your actual user ID from login response)
+GET http://127.0.0.1:5001/api/users/{{user_id}}
+Authorization: Bearer YOUR_TOKEN_HERE  
+Content-Type: application/json
+
+### 4. GET YOUR OWN PROFILE (/me endpoint)
+GET http://127.0.0.1:5001/api/auth/me
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+###################################################
+# DEBUGGING CHECKLIST:
+# 
+# 0. ✅ Email verified (run step 0 first)
+# 1. ✅ Login returns 200 with token
+# 2. ✅ Token starts with "Bearer " in Authorization header
+# 3. ✅ User ID exists in database
+# 4. ✅ Token not expired (now 24 hours expiry)
+# 5. ✅ CORS headers included
+###################################################
