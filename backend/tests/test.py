@@ -1,7 +1,7 @@
 import requests
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
-API_URL = "http://127.0.0.1:5001/api/auth/sign-up"
+API_URL = "https://matcha-2.onrender.com/api/auth/sign-up"
 
 # Free image URLs — no storage needed
 # randomuser.me  → realistic profile photos (gender-aware)

@@ -23,7 +23,7 @@ def create_app():
     CORS(app, 
          resources={
              r"/api/*": {
-                 "origins": ["http://localhost:3000", "http://localhost:3001", "http://localhost:5001", "http://localhost:5001","https://matcha.vercel.app", "https://*.vercel.app"],
+                 "origins": ["http://localhost:3000", "http://localhost:3001", "http://localhost:5001", "http://localhost:5001","https://matcha.vercel.app", "https://*.vercel.app", "https://matcha-gules.vercel.app"],
                  "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
                  "allow_headers": ["Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
                  "supports_credentials": True
