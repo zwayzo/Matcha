@@ -41,7 +41,7 @@ def is_blocked(user_a, user_b):
 def preflight_block():
     """Handle preflight requests for block endpoint"""
     response = make_response('', 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -56,14 +56,14 @@ def block_user(current_user):
 
         if not blocked_id:
             response = make_response(jsonify({"error": "blocked_id is required"}), 400)
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
             response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
             return response
 
         if str(blocked_id) == str(current_user.id):
             response = make_response(jsonify({"error": "You cannot block yourself"}), 400)
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
             response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
             return response
@@ -75,7 +75,7 @@ def block_user(current_user):
         if is_blocked(current_user.id, blocked_id):
             print(f"User {blocked_id} already blocked by {current_user.id}")
             response = make_response(jsonify({"message": "Already blocked"}), 200)
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
             response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
             return response
@@ -106,7 +106,7 @@ def block_user(current_user):
             "message": "User blocked successfully",
             "matches_removed": len(matches_to_remove)
         }), 201)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -115,7 +115,7 @@ def block_user(current_user):
         print(f"❌ Error blocking user: {str(e)}")
         db.session.rollback()
         response = make_response(jsonify({"error": f"Failed to block user: {str(e)}"}), 500)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response

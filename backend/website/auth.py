@@ -45,7 +45,7 @@ def token_required(f):
         # Helper function to create CORS-enabled error responses
         def cors_error_response(message, status_code):
             response = make_response(jsonify({"error": message}), status_code)
-            response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response.headers['Access-Control-Allow-Origin'] = '*'
             response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
             response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
             return response

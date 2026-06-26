@@ -19,7 +19,7 @@ user = Blueprint('user', __name__)
 def health_check():
     """Simple health check endpoint to verify backend connectivity"""
     response = make_response(jsonify({"status": "ok", "message": "Backend is running"}), 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -29,7 +29,7 @@ def health_check():
 def preflight_profile_visits():
     """Handle preflight requests for profile visits endpoint"""
     response = make_response('', 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -39,7 +39,7 @@ def preflight_profile_visits():
 def test_endpoint():
     """Simple test endpoint without authentication"""
     response = make_response(jsonify({"message": "Test endpoint works", "cors": "enabled"}), 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -53,7 +53,7 @@ def test_profile_visits():
         "cors": "enabled",
         "auth": "disabled"
     }]), 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -104,7 +104,7 @@ def create_missing_tables():
             result["status"] = "partial_success" if not result["errors"] else "error"
         
         response = make_response(jsonify(result), 200)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -116,7 +116,7 @@ def create_missing_tables():
             "message": "Failed to create tables"
         }
         response = make_response(jsonify(error_response), 500)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -127,7 +127,7 @@ def create_missing_tables():
 def preflight_user_profile(user_id):
     """Handle preflight requests for user profile endpoint"""
     response = make_response('', 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, PUT, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -179,7 +179,7 @@ def update_user_profile(current_user, user_id):
 
     db.session.commit()
     response = make_response(jsonify({"message": "Profile updated successfully"}), 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, PUT, POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -189,7 +189,7 @@ def update_user_profile(current_user, user_id):
 @user.route('/update-location', methods=['OPTIONS'])
 def preflight_update_location():
     response = make_response('', 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -216,7 +216,7 @@ def update_location(current_user):
 
     db.session.commit()
     response = make_response(jsonify({"message": "Location updated", "location": location}), 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -230,7 +230,7 @@ def get_user_profile(current_user, user_id):
     if not user:
         print(f"❌ User {user_id} not found")
         response = make_response(jsonify({"error": "User not found"}), 404)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -239,7 +239,7 @@ def get_user_profile(current_user, user_id):
     if not profile:
         print(f"❌ Profile for user {user_id} not found")
         response = make_response(jsonify({"error": "Profile not found"}), 404)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -282,7 +282,7 @@ def get_user_profile(current_user, user_id):
         
         print(f"✅ Successfully retrieved profile for user {user_id}")
         response = make_response(jsonify(user_data), 200)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -290,7 +290,7 @@ def get_user_profile(current_user, user_id):
     except Exception as e:
         print(f"❌ Error serializing profile data for user {user_id}: {str(e)}")
         response = make_response(jsonify({"error": f"Internal server error: {str(e)}"}), 500)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -406,7 +406,7 @@ def get_profile_visits(current_user):
         print(f"✅ Returning {len(results)} profile visits")
         
         response = make_response(jsonify(results), 200)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -414,7 +414,7 @@ def get_profile_visits(current_user):
     except Exception as e:
         print(f"❌ Error in get_profile_visits: {str(e)}")
         response = make_response(jsonify({"error": f"Internal server error: {str(e)}"}), 500)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         return response
@@ -424,7 +424,7 @@ def get_profile_visits(current_user):
 @user.route('/liked-me', methods=['OPTIONS'])
 def preflight_liked_me():
     response = make_response('', 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
@@ -481,7 +481,7 @@ def fame_rating(user_id):
 @user.route('/view/<int:user_id>', methods=['OPTIONS'])
 def preflight_view(user_id):
     response = make_response('', 200)
-    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
