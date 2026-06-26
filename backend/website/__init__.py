@@ -20,19 +20,7 @@ def create_app():
     app = Flask(__name__)
     
     # Configure CORS to allow frontend requests
-    CORS(app, 
-         resources={
-             r"/api/*": {
-                 "origins": ["http://localhost:3000", "http://localhost:3001", "http://localhost:5001", "http://localhost:5001","https://matcha.vercel.app", "https://*.vercel.app", "https://matcha-gules.vercel.app"],
-                 "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-                 "allow_headers": ["Content-Type", "Authorization", "Access-Control-Allow-Credentials"], 
-                 "supports_credentials": True
-             }
-         },
-         allow_headers=["Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
-         origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:5001", "http://localhost:5001", "https://matcha-gules.vercel.app"],
-         supports_credentials=True
-    )
+    CORS(app, origins="*", supports_credentials=False)
     
     app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
