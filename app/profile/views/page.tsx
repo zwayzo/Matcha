@@ -55,7 +55,7 @@ const testBackendConnection = async () => {
         return baseUrl // Return the working URL
       }
     } catch (error) {
-      console.log(`❌ ${baseUrl} failed:`, error.message)
+      console.log(`❌ ${baseUrl} failed:`, (error as any).message)
     }
   }
   
