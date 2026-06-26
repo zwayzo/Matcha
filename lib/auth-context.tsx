@@ -28,7 +28,7 @@ export interface User {
   verified: boolean
   onlineStatus: "online" | "offline"
   lastSeen: string
-  fameRating: number // 0-100 fame score
+  fameRating? : number // 0-100 fame score
   blocked: string[] // Array of blocked user IDs
   reported: string[] // Array of reported user IDs
   emailVerified: boolean

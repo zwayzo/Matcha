@@ -17,7 +17,7 @@ interface Profile {
   bio: string
   interests: string[]
   education: string
-  fameRating: number
+  fameRating?: number
   image?: string
 }
 
