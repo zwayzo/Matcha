@@ -20,7 +20,7 @@ def create_app():
     app = Flask(__name__)
     
     # Configure CORS to allow frontend requests
-    CORS(app, origins="*", supports_credentials=False)
+    CORS(app)
     
     app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
