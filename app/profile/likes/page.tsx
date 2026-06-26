@@ -106,7 +106,7 @@ function WhoLikedMeContent() {
             profileData?.image4
           ].filter(Boolean),
           verified: profileData?.verified || false,
-          onlineStatus: profileData?.online ? "online" : "offline" as const,
+          onlineStatus: (profileData?.online ? "online" : "offline") as "online" | "offline",
           lastSeen: new Date().toISOString(),
           blocked: [],
           reported: [],
@@ -115,7 +115,8 @@ function WhoLikedMeContent() {
         }
       })
       
-      setLikedBy(transformedUsers)
+      setLikedBy(transformedUsers as unknown as User[])
+
     } catch (error: any) {
       console.error('Error loading likes:', error)
       setError(error.message || 'Failed to load likes')
