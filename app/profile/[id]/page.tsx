@@ -519,14 +519,14 @@ function ViewProfileContent() {
                 )}
 
                 {/* Block Button - Always Visible */}
-                <Button 
+                {/* <Button 
                   onClick={() => setShowBlockDialog(true)}
                   variant="outline" 
                   className="w-full border-2 border-red-500/50 bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:border-red-400"
                 >
                   <Ban className="w-5 h-5 mr-2" />
                   Block User
-                </Button>
+                </Button> */}
 
                 {/* Match Status Indicator */}
                 {hasLiked && isMatched && (
@@ -572,9 +572,9 @@ function ViewProfileContent() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleBlock} className="bg-red-600 hover:bg-red-700">
+            {/* <AlertDialogAction onClick={handleBlock} className="bg-red-600 hover:bg-red-700">
               Block User
-            </AlertDialogAction>
+            </AlertDialogAction> */}
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

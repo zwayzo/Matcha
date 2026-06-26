@@ -2,14 +2,15 @@ import requests
 import random
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
-API_URL = "http://127.0.0.1:5001/api/auth/sign-up"
+API_URL = "https://matcha-2.onrender.com/api/auth/sign-up"
 
 def get_images(sex: str, seed: int):
     """Return 4 image URLs. image1 = realistic profile photo, 2-4 = lifestyle extras."""
     gender = "women" if sex == "female" else "men"
     num = (seed % 99) + 1  # randomuser.me has 0–99 per gender (100 photos)
     return {
-        "image1": f"https://randomuser.me/api/portraits/{gender}/{num}.jpg",
+        "profile_image": f"https://i.pravatar.cc/400?img={num}",
+        "image1": f"https://i.pravatar.cc/400?img={num}",
         "image2": f"https://picsum.photos/seed/{seed}a/400/400",
         "image3": f"https://picsum.photos/seed/{seed}b/400/400",
         "image4": f"https://picsum.photos/seed/{seed}c/400/400",

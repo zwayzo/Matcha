@@ -12,8 +12,8 @@ def get_images(sex: str, seed: int):
     gender = "female" if sex == "female" else "male"
     num = (seed % 70) + 1  # randomuser has ~70 photos per gender
     return {
-        "profile_image": f"https://randomuser.me/api/portraits/{gender}s/{num}.jpg",
-        "image1": f"https://randomuser.me/api/portraits/{gender}s/{num}.jpg",
+        "profile_image": f"https://i.pravatar.cc/400?img={num}",
+        "image1": f"https://i.pravatar.cc/400?img={num}",
         "image2": f"https://picsum.photos/seed/{seed}a/400/400",
         "image3": f"https://picsum.photos/seed/{seed}b/400/400",
         "image4": f"https://picsum.photos/seed/{seed}c/400/400",

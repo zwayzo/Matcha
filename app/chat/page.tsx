@@ -467,12 +467,12 @@ function ChatContent() {
             <AlertDialogCancel className="border-gray-600 text-gray-300 hover:bg-gray-800">
               Cancel
             </AlertDialogCancel>
-            <AlertDialogAction
+            {/* <AlertDialogAction
               onClick={handleBlock}
               className="bg-red-600 hover:bg-red-700"
             >
               Block User
-            </AlertDialogAction>
+            </AlertDialogAction> */}
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
