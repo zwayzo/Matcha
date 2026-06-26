@@ -35,7 +35,7 @@ import { FameRating } from "@/components/fame-rating"
 import { ProtectedRoute } from "@/components/protected-route"
 import { useAuth } from "@/lib/auth-context"
 
-const API_BASE_URL = 'http://localhost:5001'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001'
 
 export default function ViewProfilePage() {
   return (

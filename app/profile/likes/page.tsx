@@ -9,7 +9,7 @@ import { AppHeader } from "@/components/app-header"
 import { useAuth } from "@/lib/auth-context"
 import { ProtectedRoute } from "@/components/protected-route"
 
-const API_BASE_URL = 'http://localhost:5001'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5001'
 
 export default function WhoLikedMePage() {
   return (
